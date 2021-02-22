@@ -3,11 +3,11 @@ package logicaCaso;
 public class Consumidores extends Thread {
 
 	private Mercado mercado;
-	private int cantidad;
+	private int numeroThread;
 	
-	public Consumidores(Mercado m, int cantidad) {
+	public Consumidores(Mercado m, int numeroThread) {
 		mercado = m;
-		this.cantidad = cantidad;
+		this.numeroThread = numeroThread;
 	}
 
 	@Override
@@ -15,8 +15,13 @@ public class Consumidores extends Thread {
 	{
 		int valor = 0;
         for (int i = 0; i < 10; i++) {
-            valor = mercado.compraProducto();
-            System.out.println("Consumidor #" + this.cantidad + " compra: " + valor);
+            valor = mercado.compraProductoA();
+            System.out.println("Consumidor #" + this.numeroThread + " compra producto tipo A: " + valor);
+        }
+        
+        for (int i = 0; i < 10; i++) {
+            valor = mercado.compraProductoB();
+            System.out.println("Consumidor #" + this.numeroThread + " compra producto tipo B: " + valor);
         }
 	}
 	
