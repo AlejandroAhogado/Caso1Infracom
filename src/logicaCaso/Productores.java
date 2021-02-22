@@ -20,24 +20,28 @@ public class Productores extends Thread {
 	public int numeroProductosA = 0;
 	public int numeroProductosB = 0;
 	public final static int MAX_PRODUCTOS = 10;
-	public boolean generando = false;
+	public boolean generando = true;
 
 	private synchronized void generarProductoA() {
 		
 		if (numeroProductosA+numeroProductosB<=MAX_PRODUCTOS ) {
 			generando = true;
 			numeroProductosA++;
+		}else {
+			System.out.println("No hay espacio para almacenar productos");
+			generando = false;
 		}
-		generando = false;
 	}
 
 	private synchronized void generarProductoB() {
 			if (numeroProductosA+numeroProductosB<=MAX_PRODUCTOS ) {
 				generando = true;
 				numeroProductosB++;
+			}else {
+				System.out.println("No hay espacio para almacenar productos");
+				generando = false;
 			}
-			generando = false;
+			
 	}
-
 
 }
