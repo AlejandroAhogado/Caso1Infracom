@@ -4,18 +4,21 @@ public class probarCaso {
 
 	 public static void main(String[] args) {
 	        Mercado cantidad = new Mercado();
-	        Productores productor1 = new Productores(cantidad, 1);
-	        Consumidores consumidor1 = new Consumidores(cantidad, 1);
+	        Productores[] productor = new Productores[10];
+	        Consumidores[] consumidor= new Consumidores[10];;
 	        
+	      
 	        for (int i = 0; i < 10; i++) {
-	        	Productores productor + i = new Productores(cantidad, 1);
-		        Consumidores consumidor + i = new Consumidores(cantidad, 1);
+	        	productor[i]= new Productores(cantidad, i);
+	        	consumidor[i]= new Consumidores(cantidad, i);
 			}
 	        
+	        for (int i = 0; i < 10; i++) {
+				productor[i].start();
+				consumidor[i].start();
+			}
 	        
-	        
-	        productor1.start();
-	        consumidor1.start();
+
 	    }
 
 }
