@@ -14,7 +14,8 @@ public class probarCaso {
 			}
 	        
 	        for (int i = 0; i < 10; i++) {
-				productor[i].start();
+				
+	        	productor[i].start();
 				consumidor[i].start();
 			}
 	        

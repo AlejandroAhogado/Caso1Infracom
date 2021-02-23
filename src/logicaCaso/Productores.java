@@ -15,7 +15,7 @@ public class Productores extends Thread {
 	public void run()
 	{
 		for (int i = 1; i < 10; i++) {
-			mercado.producirA(i);;
+			mercado.producirA(i);
             System.out.println("Productor #" + this.numeroThread + " produce producto tipo A: " + i +'\n'+
             	"Cantidad de productos A disponibles: "+	mercado.getCantidadProductosA() +'\n' );
             try {
@@ -26,7 +26,7 @@ public class Productores extends Thread {
         }
 		
 		for (int i = 1; i < 10; i++) {
-			mercado.producirB(i);;
+			mercado.producirB(i);
             System.out.println("Productor #" + this.numeroThread + " produce producto tipo B: " + i +'\n'+
                 	"Cantidad de productos B disponibles: "+	mercado.getCantidadProductosB() +'\n');
             try {
