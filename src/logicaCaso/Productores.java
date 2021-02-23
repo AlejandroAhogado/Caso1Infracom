@@ -16,8 +16,9 @@ public class Productores extends Thread {
 	{
 		for (int i = 1; i < 10; i++) {
 			mercado.producirA(i);
+			synchronized (System.out) {
             System.out.println("Productor #" + this.numeroThread + " produce producto tipo A: " + i +'\n'+
-            	"Cantidad de productos A disponibles: "+	mercado.getCantidadProductosA() +'\n' );
+            	"Cantidad de productos A disponibles: "+	mercado.getCantidadProductosA() +'\n' );}
             try {
                 sleep((int)(Math.random() * 3000));
             } catch (InterruptedException e) {
@@ -27,8 +28,9 @@ public class Productores extends Thread {
 		
 		for (int i = 1; i < 10; i++) {
 			mercado.producirB(i);
-            System.out.println("Productor #" + this.numeroThread + " produce producto tipo B: " + i +'\n'+
-                	"Cantidad de productos B disponibles: "+	mercado.getCantidadProductosB() +'\n');
+			synchronized (System.out) {
+			            System.out.println("Productor #" + this.numeroThread + " produce producto tipo B: " + i +'\n'+
+                	"Cantidad de productos B disponibles: "+	mercado.getCantidadProductosB() +'\n');}
             try {
                 sleep((int)(Math.random() * 3000));
             } catch (InterruptedException e) {

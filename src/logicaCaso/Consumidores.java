@@ -16,13 +16,18 @@ public class Consumidores extends Thread {
 		int valor = 0;
         for (int i = 0; i < 10; i++) {
             valor = mercado.compraProductoA();
+            synchronized (System.out) {
+				
+			
             System.out.println("Consumidor #" + this.numeroThread + " compra producto tipo A: " + valor);
-        }
+        }}
         
         for (int i = 0; i < 10; i++) {
             valor = mercado.compraProductoB();
+            synchronized (System.out) {
+			
             System.out.println("Consumidor #" + this.numeroThread + " compra producto tipo B: " + valor);
-        }
+        }}
 	}
 	
 	
