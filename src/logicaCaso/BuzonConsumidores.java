@@ -11,9 +11,10 @@ public class BuzonConsumidores
     private ArrayList ConsumidoresCantidadProductosB = new ArrayList();
     private boolean disponibleA = false;
     private boolean disponibleB = false;
+    private static final int MAX = 10;
    
     public synchronized void almacenarProductoB(int valor) {
-        while (disponibleB==false ) {
+        while (ConsumidoresCantidadProductosA.size()>MAX) {
             try {
                 wait();
             } catch (Exception e) {
@@ -26,11 +27,10 @@ public class BuzonConsumidores
         	ConsumidoresCantidadProductosB.add(buzonIntermediaro.darPosicionB(i));
 	        notify();
         }
-        disponibleB = false;
     }
     
     public synchronized void almacenarProductoA(int valor) {
-        while (disponibleA == true ) {
+        while (ConsumidoresCantidadProductosB.size()>MAX ) {
             Thread.yield();
         }
         
@@ -39,27 +39,23 @@ public class BuzonConsumidores
         	ConsumidoresCantidadProductosA.add(buzonIntermediaro.darPosicionA(i));
 	        notify();
         }
-        disponibleA = false;
-
     }
     
     public synchronized void comprarProductoA(int valor) {
-        while (disponibleA == true ) {
+        while (ConsumidoresCantidadProductosA.size()>MAX ) {
             Thread.yield();
         }
-        disponibleA = false;
         ConsumidoresCantidadProductosA.remove(valor);
         notify();
     }
     public synchronized void comprarProductoB(int valor) {
-        while (disponibleB==false ) {
+        while (ConsumidoresCantidadProductosB.size()>MAX ) {
             try {
                 wait();
             } catch (Exception e) {
                 System.out.println("Error en el try/wait");
             }
         }
-        disponibleB = true;
         ConsumidoresCantidadProductosB.remove(valor);
         notify();
     }
@@ -98,6 +94,16 @@ public class BuzonConsumidores
     public Object darPosicionA(int pos)
     {
     	return ConsumidoresCantidadProductosA.get(pos);
+    }
+    
+    public ArrayList darListaConsumidoresProductosA()
+    {
+    	return ConsumidoresCantidadProductosA;
+    }
+    
+    public ArrayList darListaConsumidoresProductosB()
+    {
+    	return ConsumidoresCantidadProductosB;
     }
 
 }
