@@ -3,11 +3,13 @@ package logicaCaso;
 public class Productores extends Thread {
 	
 	private Mercado mercado;
+	private BuzonProductores productores;
 	private int numeroThread;
 	
-	public Productores(Mercado m, int numeroThread) {
-		mercado = m;
+	public Productores(BuzonProductores s, int numeroThread) {
+//		mercado = m;
 		this.numeroThread = numeroThread;
+		productores=s;
 	}
 	
 	
@@ -15,22 +17,22 @@ public class Productores extends Thread {
 	public void run()
 	{
 		for (int i = 1; i < 10; i++) {
-			mercado.producirA(i);
+			productores.producirA(i);
             System.out.println("Productor #" + this.numeroThread + " produce producto tipo A: " + i +'\n'+
-            	"Cantidad de productos A disponibles: "+	mercado.getCantidadProductosA() +'\n' );
+            	"Cantidad de productos A disponibles: "+	productores.getCantidadProductosA() +'\n' );
             try {
-                sleep((int)(Math.random() * 3000));
+                sleep((int)(Math.random() * 100));
             } catch (InterruptedException e) {
             }
             
         }
 		
 		for (int i = 1; i < 10; i++) {
-			mercado.producirB(i);
+			productores.producirB(i);
             System.out.println("Productor #" + this.numeroThread + " produce producto tipo B: " + i +'\n'+
-                	"Cantidad de productos B disponibles: "+	mercado.getCantidadProductosB() +'\n');
+                	"Cantidad de productos B disponibles: "+	productores.getCantidadProductosB() +'\n');
             try {
-                sleep((int)(Math.random() * 3000));
+                sleep((int)(Math.random() * 100));
             } catch (InterruptedException e) {
             }
         }
