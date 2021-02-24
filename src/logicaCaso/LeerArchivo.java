@@ -2,20 +2,20 @@ package logicaCaso;
 
 public class LeerArchivo implements Comparable <LeerArchivo> {
 
-	int numeroProductores = 0;
+	String numeroProductores = null;
 	
-	int numeroConsumidores = 0;
+	String numeroConsumidores = null;
 	
-	int tamañoBuzonProductores = 0;
+	String tamañoBuzonProductores = null;
 	
-	int tamañoBuzonConsumidores = 0;
+	String tamañoBuzonConsumidores = null;
 	
-	int numeroProductosProducir = 0;
+	String numeroProductosProducir = null;
 	
-	int numeroProductosConsumir = 0;
+	String numeroProductosConsumir = null;
 	
-	public LeerArchivo(int numeroProductores, int numeroConsumidores, int tamañoBuzonProductores,
-			int tamañoBuzonConsumidores, int numeroProductosProducir, int numeroProductosConsumir) {
+	public LeerArchivo(String numeroProductores, String numeroConsumidores, String tamañoBuzonProductores,
+			String tamañoBuzonConsumidores, String numeroProductosProducir, String numeroProductosConsumir) {
 		super();
 		this.numeroProductores = numeroProductores;
 		this.numeroConsumidores = numeroConsumidores;
@@ -25,51 +25,51 @@ public class LeerArchivo implements Comparable <LeerArchivo> {
 		this.numeroProductosConsumir = numeroProductosConsumir;
 	}
 
-	public int getNumeroProductores() {
+	public String getNumeroProductores() {
 		return numeroProductores;
 	}
 
-	public void setNumeroProductores(int numeroProductores) {
+	public void setNumeroProductores(String numeroProductores) {
 		this.numeroProductores = numeroProductores;
 	}
 
-	public int getNumeroConsumidores() {
+	public String getNumeroConsumidores() {
 		return numeroConsumidores;
 	}
 
-	public void setNumeroConsumidores(int numeroConsumidores) {
+	public void setNumeroConsumidores(String numeroConsumidores) {
 		this.numeroConsumidores = numeroConsumidores;
 	}
 
-	public int getTamañoBuzonProductores() {
+	public String getTamañoBuzonProductores() {
 		return tamañoBuzonProductores;
 	}
 
-	public void setTamañoBuzonProductores(int tamañoBuzonProductores) {
+	public void setTamañoBuzonProductores(String tamañoBuzonProductores) {
 		this.tamañoBuzonProductores = tamañoBuzonProductores;
 	}
 
-	public int getTamañoBuzonConsumidores() {
+	public String getTamañoBuzonConsumidores() {
 		return tamañoBuzonConsumidores;
 	}
 
-	public void setTamañoBuzonConsumidores(int tamañoBuzonConsumidores) {
+	public void setTamañoBuzonConsumidores(String tamañoBuzonConsumidores) {
 		this.tamañoBuzonConsumidores = tamañoBuzonConsumidores;
 	}
 
-	public int getNumeroProductosProducir() {
+	public String getNumeroProductosProducir() {
 		return numeroProductosProducir;
 	}
 
-	public void setNumeroProductosProducir(int numeroProductosProducir) {
+	public void setNumeroProductosProducir(String numeroProductosProducir) {
 		this.numeroProductosProducir = numeroProductosProducir;
 	}
 
-	public int getNumeroProductosConsumir() {
+	public String getNumeroProductosConsumir() {
 		return numeroProductosConsumir;
 	}
 
-	public void setNumeroProductosConsumir(int numeroProductosConsumir) {
+	public void setNumeroProductosConsumir(String numeroProductosConsumir) {
 		this.numeroProductosConsumir = numeroProductosConsumir;
 	}
 

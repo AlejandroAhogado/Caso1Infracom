@@ -5,6 +5,7 @@ public class Productores extends Thread {
 	private Mercado mercado;
 	private BuzonProductores productores;
 	private int numeroThread;
+	private probarCaso datos = new probarCaso();
 	
 	public Productores(BuzonProductores s, int numeroThread) {
 //		mercado = m;
