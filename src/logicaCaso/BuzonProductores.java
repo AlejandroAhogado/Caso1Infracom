@@ -2,25 +2,26 @@
 package logicaCaso;
 
 import java.util.ArrayList;
+import logicaCaso.probarCaso;
 
 public class BuzonProductores {
 
-	private ArrayList ProductoresCantidadProductosA = new ArrayList();
-	private ArrayList ProductoresCantidadProductosB = new ArrayList();
+	private probarCaso datos = new probarCaso();
+	private ArrayList ProductoresCantidadProductosA = new ArrayList((int)datos.Datos.get(2));
+	private ArrayList ProductoresCantidadProductosB = new ArrayList((int)datos.Datos.get(2));
     private boolean disponibleA = false;
     private boolean disponibleB = false;
-    private static final int MAX = 10;
     
    
     public synchronized void producirA(int valor) {
-        while (ProductoresCantidadProductosA.size()>MAX ) {
+        while (ProductoresCantidadProductosA.size()>(int)datos.Datos.get(4) ) {
             Thread.yield();
         }
         ProductoresCantidadProductosA.add(valor);
     }
     
     public synchronized void producirB(int valor) {
-        while (ProductoresCantidadProductosB.size()>MAX ) {
+        while (ProductoresCantidadProductosB.size()>(int)datos.Datos.get(4)) {
             Thread.yield();
         }
         ProductoresCantidadProductosB.add(valor);

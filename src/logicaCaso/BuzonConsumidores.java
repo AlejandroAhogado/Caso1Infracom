@@ -5,16 +5,15 @@ import java.util.ArrayList;
 
 public class BuzonConsumidores
 {
-
+	private probarCaso datos = new probarCaso();
 	private BuzonIntermediario buzonIntermediaro = new BuzonIntermediario();
-	private ArrayList ConsumidoresCantidadProductosA = new ArrayList();
-    private ArrayList ConsumidoresCantidadProductosB = new ArrayList();
+	private ArrayList ConsumidoresCantidadProductosA = new ArrayList((int) datos.Datos.get(3));
+    private ArrayList ConsumidoresCantidadProductosB = new ArrayList((int) datos.Datos.get(3));
     private boolean disponibleA = false;
     private boolean disponibleB = false;
-    private static final int MAX = 10;
    
     public synchronized void almacenarProductoB(int valor) {
-        while (ConsumidoresCantidadProductosA.size()>MAX) {
+        while (ConsumidoresCantidadProductosA.size()>(int)datos.Datos.get(5)) {
         	  Thread.yield();
         }
         
@@ -26,7 +25,7 @@ public class BuzonConsumidores
     }
     
     public synchronized void almacenarProductoA(int valor) {
-        while (ConsumidoresCantidadProductosB.size()>MAX ) {
+        while (ConsumidoresCantidadProductosB.size()>(int)datos.Datos.get(5) ) {
             Thread.yield();
         }
         for(int i = 0 ; i < 10 ; i++)
@@ -36,14 +35,14 @@ public class BuzonConsumidores
     }
     
     public synchronized void comprarProductoA(int valor) {
-        while (ConsumidoresCantidadProductosA.size()>MAX ) {
+        while (ConsumidoresCantidadProductosA.size()>(int)datos.Datos.get(5) ) {
             Thread.yield();
         }
         ConsumidoresCantidadProductosA.remove(valor);
 
     }
     public synchronized void comprarProductoB(int valor) {
-        while (ConsumidoresCantidadProductosB.size()>MAX ) {
+        while (ConsumidoresCantidadProductosB.size()>(int)datos.Datos.get(5) ) {
         	  Thread.yield();
         }
         ConsumidoresCantidadProductosB.remove(valor);

@@ -1,3 +1,6 @@
+//Santiago Diaz Moreno 201912247
+//Alejandro Ahogado 201920701
+
 package logicaCaso;
 
 import java.io.FileReader;
@@ -36,28 +39,28 @@ public class probarCaso {
 						
 						int k = 0; 
 
-						int pnumeroProductores = Integer.parseInt(data[k]);
+						String pnumeroProductores = data[k];
 						k++;
 						
-						int pnumeroConsumidores =Integer.parseInt(data[k]);
+						String pnumeroConsumidores =data[k];
 						k++;
 						
-						int ptamañoBuzonProductores  =Integer.parseInt(data[k]);  
+						String ptamañoBuzonProductores  =data[k];  
 						k++;
 						
-						int ptamañoBuzonConsumidores  = Integer.parseInt(data[k]);  
+						String ptamañoBuzonConsumidores  = data[k];  
 						k++;
 						
-						int pnumeroProductosProducir = Integer.parseInt(data[k]);
+						String pnumeroProductosProducir = data[k];
 						
-						int pnumeroProductosConsumir = Integer.parseInt(data[k]);
+						String pnumeroProductosConsumir = data[k];
 						
 						LeerArchivo archivo1 = new LeerArchivo(pnumeroProductores, pnumeroConsumidores,
 								ptamañoBuzonProductores, ptamañoBuzonConsumidores, pnumeroProductosProducir,
 								pnumeroProductosConsumir);
 						
 						Datos.add(archivo1);
-						numeroProductoresConsumidores = pnumeroProductores;
+						numeroProductoresConsumidores = Integer.parseInt(pnumeroProductores);
 						contador++;
 						System.out.println("Datos cargados: "+ contador);
 			     }
