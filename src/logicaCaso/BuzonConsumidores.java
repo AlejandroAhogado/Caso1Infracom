@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 package logicaCaso;
 
 import java.util.ArrayList;
@@ -100,3 +101,10 @@ public class BuzonConsumidores
     }
 
 }
+=======
+package logicaCaso;
+
+public class BuzonConsumidores {
+
+}
+>>>>>>> Stashed changes

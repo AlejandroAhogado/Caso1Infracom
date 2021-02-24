@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 package logicaCaso;
 
 import java.util.ArrayList;
@@ -73,3 +74,10 @@ public class BuzonProductores {
     }
 
 }
+=======
+package logicaCaso;
+
+public class BuzonProductores extends Thread{
+
+}
+>>>>>>> Stashed changes
