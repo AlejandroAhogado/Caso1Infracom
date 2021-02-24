@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 package logicaCaso;
 
 import java.util.ArrayList;
@@ -6,9 +6,14 @@ import logicaCaso.probarCaso;
 
 public class BuzonProductores {
 
+<<<<<<< Updated upstream
 	private probarCaso datos = new probarCaso();
 	private ArrayList ProductoresCantidadProductosA = new ArrayList((int)datos.Datos.get(2));
 	private ArrayList ProductoresCantidadProductosB = new ArrayList((int)datos.Datos.get(2));
+=======
+	private ArrayList<Integer> ProductoresCantidadProductosA = new ArrayList();
+	private ArrayList<Integer> ProductoresCantidadProductosB = new ArrayList();
+>>>>>>> Stashed changes
     private boolean disponibleA = false;
     private boolean disponibleB = false;
     
@@ -18,6 +23,7 @@ public class BuzonProductores {
             Thread.yield();
         }
         ProductoresCantidadProductosA.add(valor);
+        
     }
     
     public synchronized void producirB(int valor) {
@@ -74,10 +80,4 @@ public class BuzonProductores {
     }
 
 }
-=======
-package logicaCaso;
 
-public class BuzonProductores extends Thread{
-
-}
->>>>>>> Stashed changes
