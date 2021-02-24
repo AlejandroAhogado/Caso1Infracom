@@ -14,17 +14,13 @@ public class BuzonConsumidores
    
     public synchronized void almacenarProductoB(int valor) {
         while (ConsumidoresCantidadProductosA.size()>MAX) {
-            try {
-                wait();
-            } catch (Exception e) {
-                System.out.println("Error en el try/wait");
-            }
+        	  Thread.yield();
         }
         
         for(int i = 0 ; i < 10 ; i++)
         {
         	ConsumidoresCantidadProductosB.add(buzonIntermediaro.darPosicionB(i));
-	        notify();
+	       
         }
     }
     
@@ -32,11 +28,9 @@ public class BuzonConsumidores
         while (ConsumidoresCantidadProductosB.size()>MAX ) {
             Thread.yield();
         }
-        
         for(int i = 0 ; i < 10 ; i++)
         {
         	ConsumidoresCantidadProductosA.add(buzonIntermediaro.darPosicionA(i));
-	        notify();
         }
     }
     
@@ -45,18 +39,13 @@ public class BuzonConsumidores
             Thread.yield();
         }
         ConsumidoresCantidadProductosA.remove(valor);
-        notify();
+
     }
     public synchronized void comprarProductoB(int valor) {
         while (ConsumidoresCantidadProductosB.size()>MAX ) {
-            try {
-                wait();
-            } catch (Exception e) {
-                System.out.println("Error en el try/wait");
-            }
+        	  Thread.yield();
         }
         ConsumidoresCantidadProductosB.remove(valor);
-        notify();
     }
     
     public int getCantidadProductosA() {
