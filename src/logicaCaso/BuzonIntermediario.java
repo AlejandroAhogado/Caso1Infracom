@@ -14,6 +14,7 @@ public class BuzonIntermediario
 	private ArrayList buzonIntermediarioB = new ArrayList();
 	private ArrayList buzonIntermediarioConsumidoresA = new ArrayList();
 	private ArrayList buzonIntermediarioConsumidoresB = new ArrayList();
+	 private static final int MAX = 10;
 	
 //	public BuzonIntermediario()
 //	{
@@ -22,7 +23,7 @@ public class BuzonIntermediario
 //	}
 	
 	 public synchronized void almacenarA() {
-	        while (buzonProductores.isDisponibleA() == true ) {
+	        while (buzonProductores.darListaProductoresProductosA().size()>MAX) {
 	            try {
 	                wait();
 	            } catch (InterruptedException e) {
@@ -35,7 +36,7 @@ public class BuzonIntermediario
 	        }
 	    }
 	 public synchronized void almacenarB() {
-	        while (buzonProductores.isDisponibleB() == true ) {
+	        while (buzonProductores.darListaProductoresProductosB().size()>MAX) {
 	            try {
 	                wait();
 	            } catch (InterruptedException e) {
@@ -49,7 +50,7 @@ public class BuzonIntermediario
 	    }
 	 
 	 public synchronized void asignarA() {
-	        while (buzonConsumidores.isDisponibleA() == true ) {
+	        while (buzonConsumidores.darListaConsumidoresProductosA().size()>MAX ) {
 	            try {
 	                wait();
 	            } catch (InterruptedException e) {
@@ -63,7 +64,7 @@ public class BuzonIntermediario
 	    }
 	 
 	 public synchronized void asignarB() {
-	        while (buzonConsumidores.isDisponibleB() == true ) {
+	        while (buzonConsumidores.darListaConsumidoresProductosA().size()>MAX) {
 	            try {
 	                wait();
 	            } catch (InterruptedException e) {

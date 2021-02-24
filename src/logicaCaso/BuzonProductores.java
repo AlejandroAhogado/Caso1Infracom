@@ -8,22 +8,21 @@ public class BuzonProductores {
 	private ArrayList ProductoresCantidadProductosB = new ArrayList();
     private boolean disponibleA = false;
     private boolean disponibleB = false;
+    private static final int MAX = 10;
     
    
     public synchronized void producirA(int valor) {
-        while (disponibleA == true ) {
+        while (ProductoresCantidadProductosA.size()>MAX ) {
             Thread.yield();
         }
         ProductoresCantidadProductosA.add(valor);
-        disponibleA = true;
     }
     
     public synchronized void producirB(int valor) {
-        while (disponibleB == true) {
+        while (ProductoresCantidadProductosB.size()>MAX ) {
             Thread.yield();
         }
         ProductoresCantidadProductosB.add(valor);
-        disponibleB = true;
     }
     
     public int getCantidadProductosA() {
