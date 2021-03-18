@@ -23,9 +23,9 @@ public class probarCaso {
 		 
 		 try 
 			{
-				CSVParser parser = new CSVParserBuilder().withSeparator(',').build();
+				CSVParser parser = new CSVParserBuilder().withSeparator(';').build();
 				
-				FileReader filereader = new FileReader("./data/ArchivoDeTexto.csv");
+				FileReader filereader = new FileReader("./Data/ArchivoDeTexto.csv");
 			     
 				 CSVReader csvReader = ( new CSVReaderBuilder(filereader)).withCSVParser(parser).build();
 				 
@@ -63,6 +63,7 @@ public class probarCaso {
 						numeroProductoresConsumidores = Integer.parseInt(pnumeroProductores);
 						contador++;
 						System.out.println("Datos cargados: "+ contador);
+						break;
 			     }
 			}
 			catch (Exception e)

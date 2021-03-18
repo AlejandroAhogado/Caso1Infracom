@@ -6,14 +6,11 @@ import logicaCaso.probarCaso;
 
 public class BuzonProductores {
 
-<<<<<<< Updated upstream
+
 	private probarCaso datos = new probarCaso();
 	private ArrayList ProductoresCantidadProductosA = new ArrayList((int)datos.Datos.get(2));
 	private ArrayList ProductoresCantidadProductosB = new ArrayList((int)datos.Datos.get(2));
-=======
-	private ArrayList<Integer> ProductoresCantidadProductosA = new ArrayList();
-	private ArrayList<Integer> ProductoresCantidadProductosB = new ArrayList();
->>>>>>> Stashed changes
+
     private boolean disponibleA = false;
     private boolean disponibleB = false;
     
