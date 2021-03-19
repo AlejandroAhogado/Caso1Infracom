@@ -20,13 +20,13 @@ public class Productores extends Thread {
 		for (int i = 1; i < 10; i++) {
 
 			productores.producirA(i);
-            System.out.println("Productor #" + this.numeroThread + " produce producto tipo A: " + i +'\n'+
-            	"Cantidad de productos A disponibles: "+	productores.getCantidadProductosA() +'\n' );
+//            System.out.println("Productor #" + this.numeroThread + " produce producto tipo A: " + i +'\n'+
+//            	"Cantidad de productos A disponibles: "+	productores.getCantidadProductosA() +'\n' );
 
-			mercado.producirA(i);
+//			mercado.producirA(i);
 			synchronized (System.out) {
             System.out.println("Productor #" + this.numeroThread + " produce producto tipo A: " + i +'\n'+
-            	"Cantidad de productos A disponibles: "+	mercado.getCantidadProductosA() +'\n' );}
+            	"Cantidad de productos A disponibles: "+	productores.getCantidadProductosA() +'\n' );}
 
             try {
                 sleep((int)(Math.random() * 100));

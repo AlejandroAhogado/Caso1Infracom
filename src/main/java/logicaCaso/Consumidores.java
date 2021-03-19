@@ -19,6 +19,7 @@ public class Consumidores extends Thread {
         for (int i = 0; i < 10; i++) 
         {
         	consumidores.comprarProductoA(i);
+        	System.out.println(consumidores);
             valor = (int) consumidores.darPosicionA(i);
             synchronized (System.out) {
             System.out.println("Consumidor #" + this.numeroThread + " compra producto tipo A: " + valor);

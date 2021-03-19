@@ -15,7 +15,7 @@ import com.opencsv.CSVReaderBuilder;
 public class probarCaso {
 
 	public static ArrayList Datos = new ArrayList();
-	
+	public static LeerArchivo archivo;
 	private static int numeroProductoresConsumidores = 0;
 	
 	
@@ -63,7 +63,7 @@ public class probarCaso {
 						numeroProductoresConsumidores = Integer.parseInt(pnumeroProductores);
 						contador++;
 						System.out.println("Datos cargados: "+ contador);
-						break;
+						archivo = archivo1;
 			     }
 			}
 			catch (Exception e)
@@ -89,4 +89,5 @@ public class probarCaso {
 				consumidor[i].start();
 	    }
 	 }
+	 
 }

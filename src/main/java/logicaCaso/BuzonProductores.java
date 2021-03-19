@@ -7,16 +7,18 @@ import logicaCaso.probarCaso;
 public class BuzonProductores {
 
 
-	private probarCaso datos = new probarCaso();
-	private ArrayList ProductoresCantidadProductosA = new ArrayList((int)datos.Datos.get(2));
-	private ArrayList ProductoresCantidadProductosB = new ArrayList((int)datos.Datos.get(2));
+	private probarCaso datos;
+	private LeerArchivo leerArchivo;
+	private ArrayList ProductoresCantidadProductosA = new ArrayList(Integer.parseInt(datos.archivo.getNumeroProductores()));
+	private ArrayList ProductoresCantidadProductosB = new ArrayList(Integer.parseInt(datos.archivo.getNumeroProductores()));
 
     private boolean disponibleA = false;
     private boolean disponibleB = false;
     
    
     public synchronized void producirA(int valor) {
-        while (ProductoresCantidadProductosA.size()>(int)datos.Datos.get(4) ) {
+    	
+        while (ProductoresCantidadProductosA.size()>Integer.parseInt(datos.archivo.getNumeroProductosProducir()) ) {
             Thread.yield();
         }
         ProductoresCantidadProductosA.add(valor);
@@ -24,7 +26,7 @@ public class BuzonProductores {
     }
     
     public synchronized void producirB(int valor) {
-        while (ProductoresCantidadProductosB.size()>(int)datos.Datos.get(4)) {
+        while (ProductoresCantidadProductosB.size()>Integer.parseInt(datos.archivo.getNumeroProductosProducir())) {
             Thread.yield();
         }
         ProductoresCantidadProductosB.add(valor);

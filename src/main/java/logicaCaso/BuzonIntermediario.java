@@ -8,8 +8,10 @@ import logicaCaso.BuzonProductores;
 public class BuzonIntermediario 
 {
 
-	private BuzonProductores buzonProductores = new BuzonProductores();
-	private BuzonConsumidores buzonConsumidores = new BuzonConsumidores();
+	private BuzonProductores buzonProductores;
+	
+	private BuzonConsumidores buzonConsumidores;
+	
 	private ArrayList buzonIntermediarioA = new ArrayList();
 	private ArrayList buzonIntermediarioB = new ArrayList();
 	private ArrayList buzonIntermediarioConsumidoresA = new ArrayList();

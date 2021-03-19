@@ -5,15 +5,15 @@ import java.util.ArrayList;
 
 public class BuzonConsumidores
 {
-	private probarCaso datos = new probarCaso();
-	private BuzonIntermediario buzonIntermediaro = new BuzonIntermediario();
-	private ArrayList ConsumidoresCantidadProductosA = new ArrayList((int) datos.Datos.get(3));
-    private ArrayList ConsumidoresCantidadProductosB = new ArrayList((int) datos.Datos.get(3));
+	private probarCaso datos ;
+	private BuzonIntermediario buzonIntermediaro;
+	private ArrayList ConsumidoresCantidadProductosA = new ArrayList(Integer.parseInt(datos.archivo.getNumeroConsumidores()));
+    private ArrayList ConsumidoresCantidadProductosB = new ArrayList(Integer.parseInt(datos.archivo.getNumeroConsumidores()));
     private boolean disponibleA = false;
     private boolean disponibleB = false;
    
     public synchronized void almacenarProductoB(int valor) {
-        while (ConsumidoresCantidadProductosA.size()>(int)datos.Datos.get(5)) {
+        while (ConsumidoresCantidadProductosA.size()>(Integer.parseInt(datos.archivo.getNumeroProductosConsumir()))) {
         	  Thread.yield();
         }
         
@@ -25,7 +25,7 @@ public class BuzonConsumidores
     }
     
     public synchronized void almacenarProductoA(int valor) {
-        while (ConsumidoresCantidadProductosB.size()>(int)datos.Datos.get(5) ) {
+        while (ConsumidoresCantidadProductosB.size()>(Integer.parseInt(datos.archivo.getNumeroProductosConsumir()))) {
             Thread.yield();
         }
         for(int i = 0 ; i < 10 ; i++)
@@ -35,14 +35,16 @@ public class BuzonConsumidores
     }
     
     public synchronized void comprarProductoA(int valor) {
-        while (ConsumidoresCantidadProductosA.size()>(int)datos.Datos.get(5) ) {
+        while (ConsumidoresCantidadProductosA.size()>(Integer.parseInt(datos.archivo.getNumeroProductosConsumir())) ) {
             Thread.yield();
+            
         }
-        ConsumidoresCantidadProductosA.remove(valor);
+        if(ConsumidoresCantidadProductosA.size() != 0)
+        ConsumidoresCantidadProductosA.remove(ConsumidoresCantidadProductosA.get(ConsumidoresCantidadProductosA.size()));
 
     }
     public synchronized void comprarProductoB(int valor) {
-        while (ConsumidoresCantidadProductosB.size()>(int)datos.Datos.get(5) ) {
+        while (ConsumidoresCantidadProductosB.size()>(Integer.parseInt(datos.archivo.getNumeroProductosConsumir()))) {
         	  Thread.yield();
         }
         ConsumidoresCantidadProductosB.remove(valor);
